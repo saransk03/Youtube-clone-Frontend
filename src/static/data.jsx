@@ -38,19 +38,19 @@ export const SideBarItems = {
 
 export const SideBarShort =[
   {
-    icon: <AiFillHome size={36} />,
+    icon: <AiFillHome size={26} />,
     name: "Home",
   },
   {
-    icon: <MdSubscriptions size={36} />,
+    icon: <MdSubscriptions size={26} />,
     name: "Subscriptions",
   },
   {
-    icon: <MdOutlineAccountCircle size={36} />,
+    icon: <MdOutlineAccountCircle size={26} />,
     name: "You",
   },
   {
-    icon: <MdOutlineSettings size={36} />,
+    icon: <MdOutlineSettings size={26} />,
     name: "Settings",
   },
 ]

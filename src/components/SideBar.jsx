@@ -9,7 +9,7 @@ const SideBar = () => {
   return (
     <>
       {toggle === false ? (
-        <div className="w-60 h-[calc(100vh-50px)] bg-yt-black text-yt-white fixed mt-14 top-0 left-0 p-3 scrollbar-hide overflow-scroll  transition-all duration-300">
+        <div className="w-60 h-[calc(100vh-50px)] bg-yt-black text-yt-white fixed mt-14 top-0 left-0 px-3 py-4  yt-scrollbar overflow-scroll  transition-all duration-300">
           <div className="mb-4">
             {SideBarItems.Top.map((item, index) => {
               return (
@@ -17,7 +17,7 @@ const SideBar = () => {
                   key={index}
                   className={`flex justify-start items-center ${
                     item.name === active ? "bg-yt-light-black" : "bg-yt-black"
-                  } rounded-md p-2`}
+                  } rounded-[10px] px-2 py-1.5`}
                   onClick={() => setActive(item.name)}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -27,14 +27,14 @@ const SideBar = () => {
             })}
           </div>
           <hr className="text-yt-light-black" />
-          <div className="mb-4">
+          <div className="mb-4 pt-3">
             {SideBarItems.Middle.map((item, index) => {
               return (
                 <div
                   key={index}
                   className={`flex justify-start items-center ${
                     item.name === active ? "bg-yt-light-black" : "bg-yt-black"
-                  } rounded-md p-2`}
+                  } rounded-[10px] px-2 py-1.5`}
                   onClick={() => setActive(item.name)}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -44,7 +44,7 @@ const SideBar = () => {
             })}
           </div>
           <hr className="text-yt-light-black" />
-          <p className="text-yt-white font-medium text-sm text-start pt-4 px-3">
+          <p className="text-yt-white font-medium text-sm text-start py-4 px-3">
             Explore
           </p>
           <div className="mb-4">
@@ -54,7 +54,7 @@ const SideBar = () => {
                   key={index}
                   className={`flex justify-start items-center ${
                     item.name === active ? "bg-yt-light-black" : "bg-yt-black"
-                  } rounded-md p-2`}
+                  } rounded-[10px] px-2 py-1.5`}
                   onClick={() => setActive(item.name)}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -68,10 +68,13 @@ const SideBar = () => {
             <p className="font-[400] text-xs hover:text-yt-white duration-300 transition-all cursor-context-menu">
               Designed by Sarankumar
             </p>
+            <p className="font-[400] text-xs hover:text-yt-white duration-300 transition-all py-3 cursor-context-menu">
+            &#169; Copyrights 2024 All rights reserved
+            </p>
           </div>
         </div>
       ) : (
-        <div className="w-32 h-[calc(100vh-50px)] bg-yt-black text-yt-white fixed mt-14 top-0 left-0 p-3 scrollbar-hide overflow-scroll transition-all duration-300">
+        <div className="w-24 h-[calc(100vh-50px)] bg-yt-black text-yt-white fixed mt-14 top-0 left-0 px-3 py-7 scrollbar-hide overflow-scroll transition-all duration-300">
           <div>
             {SideBarShort.map((item, index) => {
               return (
@@ -79,11 +82,11 @@ const SideBar = () => {
                   key={index}
                   className={`flex flex-col justify-start items-center ${
                     item.name === active ? "bg-yt-light-black" : "bg-yt-black"
-                  } rounded-md p-2 gap-2 mb-6`}
+                  } rounded-[9px] p-3 gap-2 mb-6`}
                   onClick={() => setActive(item.name)}
                 >
                   <span>{item.icon}</span>
-                  <p className="font-medium text-[10px]">{item.name}</p>
+                  <p className="font-[400] text-[10px]">{item.name}</p>
                 </div>
               );
             })}

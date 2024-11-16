@@ -23,13 +23,13 @@ const Navbar = () => {
         </div>
 
         <div className="h-10 flex justify-center items-center">
-          <div className="w-[623px] bg-yt-black flex border justify-between border-yt-light-black items-center rounded-3xl h-12">
+          <div className="w-[623px] bg-yt-black flex border justify-between border-yt-light-black items-center rounded-3xl h-11">
             <input
               type="text"
               placeholder="Search"
-              className="bg-yt-black text-yt-white text-[18px] text-start font-[400] placeholder:text-yt-gray focus:outline-none ml-4 pl-1 py-2 h-5"
+              className="bg-yt-transparent text-yt-white text-[16px] text-start w-full font-[400] placeholder:text-yt-gray focus:outline-none ml-4 pl-1 py-2"
             />
-            <button className="bg-yt-light-black rounded-r-3xl flex border-l-2 border-yt-light-black justify-center items-center px-3 py-0.5 w-[70px] h-12">
+            <button className="bg-yt-light-black rounded-r-3xl flex border-l-2 border-yt-light-black justify-center items-center px-3 py-0.5 w-[70px] h-11">
               <HiMagnifyingGlass
                 size={26}
                 className="text-yt-white inline-block text-end font-thin"
@@ -56,7 +56,7 @@ const Navbar = () => {
               />
             </div>
             <button className="bg-yt-transparent border border-yt-white py-1 px-2 rounded-full text-yt-white text-[14px] font-[700] flex items-center justify-center">
-              <MdOutlineAccountCircle size={24} className="w-8" />
+              <MdOutlineAccountCircle size={24} className="w-6" />
               Sign in
             </button>
           </div>
