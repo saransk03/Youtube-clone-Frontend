@@ -15,7 +15,7 @@ const ContextApiProvider = ({children}) => {
     setLoading(true);
     try {
         const response = await fetchApiForYoutubeData('videos',params);
-        console.log(response.items)
+        // console.log(response.items)
         setVideoData(response?.items)
     } catch (error) {
         console.error(error,'error fetching youtube results');

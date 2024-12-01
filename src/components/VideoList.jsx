@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import fetchApiForYoutubeData from "../utils/api";
 import { Link } from "react-router-dom";
-import { formatPublishTime, formatViewCount } from "../utils/helper";
+import { formatDuration, formatPublishTime, formatViewCount } from "../utils/helper";
 
 const VideoList = ({ video }) => {
   const [channelData, setChannelData] = useState();
@@ -23,12 +23,13 @@ const VideoList = ({ video }) => {
     <>
      <Link to={`/video/${video.snippet.categoryId}/${video.id}`}>
         <div className="flex flex-col justify-center items-start mb-4">
-          <div className="w-full h-full">
+          <div className="w-full h-full relative">
             <img
-              src={video.snippet.thumbnails.standard.url}
+              src={video.snippet.thumbnails.high.url}
               alt="video thumbnail"
-              className="w-full h-[260px] rounded-[12px] object-cover mb-2"
+              className="w-full h-[230px] rounded-[12px] object-cover mb-2 "
             />
+            <p className="bg-yt-black bg-opacity-75 text-yt-white absolute bottom-4 p-1 m-1 font-bold text-xs rounded-md right-0">{formatDuration(video?.contentDetails?.duration)}</p>
           </div>
           <div className="flex justify-center  mt-2">
             <img

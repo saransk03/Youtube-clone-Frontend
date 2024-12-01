@@ -1,35 +1,68 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdMic, MdOutlineAccountCircle } from "react-icons/md";
 import { HiOutlineBars3, HiMagnifyingGlass } from "react-icons/hi2";
 import { BiVideoPlus } from "react-icons/bi";
 import { FaRegBell } from "react-icons/fa";
 import logo from "../assets/yt-logo-white.png";
 import { MenuToggle } from "../context/menuToggle";
+import { Context } from "../context/ContextApi";
+import { Link, useNavigate } from "react-router-dom";
+import { CgClose } from "react-icons/cg";
 
 const Navbar = () => {
+  const { toggleFunction } = useContext(MenuToggle);
+  const { mobileMenu, setMobileMenu } = useContext(Context);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
-  const {toggleFunction} = useContext(MenuToggle)
+  const handleSearch = () => {
+    if (searchQuery.length > 0) {
+      navigate(`search/${searchQuery}`);
+    }
+  };
+
+  const handleClearSearchQuery = () => {
+    setSearchQuery("");
+  };
 
   return (
     <>
       <div className="w-full h-16 fixed bg-yt-black pl-4 pr-5 py-2 flex justify-between items-center z-10">
         <div className="flex justify-between items-center">
-          <div className="text-yt-white  hover:bg-yt-light-black rounded-full p-2 cursor-pointer" onClick={toggleFunction}>
+          <div
+            className="text-yt-white  hover:bg-yt-light-black rounded-full p-2 cursor-pointer"
+            onClick={toggleFunction}
+          >
             <HiOutlineBars3 size={28} />
           </div>
-          <div className="">
+          <Link to={"/"}>
             <img src={logo} alt="yt-logo" className=" w-32" />
-          </div>
+          </Link>
         </div>
 
         <div className="h-10 flex justify-center items-center">
-          <div className="w-[623px] bg-yt-black flex border justify-between border-yt-light-black items-center rounded-3xl h-11">
+          <div className="w-[623px] bg-yt-black flex border justify-between border-yt-light-black items-center rounded-3xl h-11 relative">
             <input
               type="text"
               placeholder="Search"
               className="bg-yt-transparent text-yt-white text-[16px] text-start w-full font-[400] placeholder:text-yt-gray focus:outline-none ml-4 pl-1 py-2"
+              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchQuery}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") handleClearSearchQuery();
+              }}
             />
-            <button className="bg-yt-light-black rounded-r-3xl flex border-l-2 border-yt-light-black justify-center items-center px-3 py-0.5 w-[70px] h-11">
+            {searchQuery && (
+              <button className="absolute right-24 md:right-20 top-1/2 transform -translate-y-1/2"
+              onClick={handleClearSearchQuery}>
+                <CgClose
+                  className="text-yt-white text-2xl"
+                />
+              </button>
+            )}
+            <button className="bg-yt-light-black rounded-r-3xl flex border-l-2 border-yt-light-black justify-center items-center px-3 py-0.5 w-[70px] h-11"
+            onClick={handleSearch}
+            >
               <HiMagnifyingGlass
                 size={26}
                 className="text-yt-white inline-block text-end font-thin"
