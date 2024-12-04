@@ -11,13 +11,12 @@ import { CgClose } from "react-icons/cg";
 
 const Navbar = () => {
   const { toggleFunction } = useContext(MenuToggle);
-  const { mobileMenu, setMobileMenu } = useContext(Context);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = () => {
     if (searchQuery.length > 0) {
-      navigate(`search/${searchQuery}`);
+      navigate(`/search/${searchQuery}`);
     }
   };
 
@@ -30,65 +29,64 @@ const Navbar = () => {
       <div className="w-full h-16 fixed bg-yt-black pl-4 pr-5 py-2 flex justify-between items-center z-10">
         <div className="flex justify-between items-center">
           <div
-            className="text-yt-white  hover:bg-yt-light-black rounded-full p-2 cursor-pointer"
+            className="text-yt-white  hover:bg-yt-light-black rounded-full md:p-2 cursor-pointer"
             onClick={toggleFunction}
           >
-            <HiOutlineBars3 size={28} />
+            <HiOutlineBars3 className="text-[20px] md:text-[28px]" />
           </div>
           <Link to={"/"}>
-            <img src={logo} alt="yt-logo" className=" w-32" />
+            <img src={logo} alt="yt-logo" className="hidden md:block w-32" />
           </Link>
         </div>
 
         <div className="h-10 flex justify-center items-center">
-          <div className="w-[623px] bg-yt-black flex border justify-between border-yt-light-black items-center rounded-3xl h-11 relative">
+          <div className="w-[200px] lg:w-[623px] bg-yt-black flex border justify-between border-yt-light-black items-center rounded-3xl h-8 lg:h-11 relative">
             <input
               type="text"
               placeholder="Search"
-              className="bg-yt-transparent text-yt-white text-[16px] text-start w-full font-[400] placeholder:text-yt-gray focus:outline-none ml-4 pl-1 py-2"
+              className="bg-yt-transparent text-yt-white text-[12px] lg:text-[16px] text-start w-full font-[400] placeholder:text-yt-gray focus:outline-none ml-4 pl-1 py-2"
               onChange={(e) => setSearchQuery(e.target.value)}
               value={searchQuery}
               onKeyUp={(e) => {
-                if (e.key === "Enter") handleClearSearchQuery();
+                if (e.key === "Enter") handleSearch();
               }}
             />
             {searchQuery && (
-              <button className="absolute right-24 md:right-20 top-1/2 transform -translate-y-1/2"
+              <button className="absolute right-12 md:right-20 top-1/2 transform -translate-y-1/2"
               onClick={handleClearSearchQuery}>
                 <CgClose
-                  className="text-yt-white text-2xl"
+                  className="text-yt-white text-[16px] lg:text-2xl"
                 />
               </button>
             )}
-            <button className="bg-yt-light-black rounded-r-3xl flex border-l-2 border-yt-light-black justify-center items-center px-3 py-0.5 w-[70px] h-11"
+            <button className="bg-yt-light-black rounded-r-3xl flex border-l-2 border-yt-light-black justify-center items-center px-3 py-0.5 w-[50px] md:w-[70px] h-8 lg:h-11"
             onClick={handleSearch}
             >
               <HiMagnifyingGlass
-                size={26}
-                className="text-yt-white inline-block text-end font-thin"
+                className="text-yt-white text-[16px] md:text-[24px] inline-block text-end font-thin"
               />
             </button>
           </div>
-          <div className="text-yt-white bg-yt-light w-12 h-12 items-center flex justify-center rounded-full ml-4 hover:bg-yt-light-black cursor-pointer">
-            <MdMic className="text-center " size={28} />
+          <div className="text-yt-white bg-yt-light w-8 h-8  md:w-12 md:h-12 items-center flex justify-center rounded-full ml-2 md:ml-4 hover:bg-yt-light-black cursor-pointer">
+            <MdMic className="text-center text-[20px] md:text-[28px]" />
           </div>
         </div>
 
         <div className="flex justify-center items-center">
           <div className="flex flex-row items-center">
-            <div className="mr-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
+            <div className="hidden md:block mr-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
               <BiVideoPlus
                 size={25}
                 className="text-yt-white text-center font-thin"
               />
             </div>
-            <div className="mr-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
+            <div className="hidden md:block mr-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
               <FaRegBell
                 size={22}
                 className="text-yt-white text-center font-thin"
               />
             </div>
-            <button className="bg-yt-transparent border border-yt-white py-1 px-2 rounded-full text-yt-white text-[14px] font-[700] flex items-center justify-center">
+            <button className="bg-yt-transparent md:border md:border-yt-white py-1 md:px-2 rounded-full text-yt-white text-[0px] md:text-[14px] font-[700] flex items-center justify-center">
               <MdOutlineAccountCircle size={24} className="w-6" />
               Sign in
             </button>

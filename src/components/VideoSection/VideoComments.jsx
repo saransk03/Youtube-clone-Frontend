@@ -4,19 +4,19 @@ import { formatPublishTime, formatViewCount } from '../../utils/helper'
 
 const VideoComments = ({comment}) => {
   return (
-    <div className='flex flex-col lg:flex-row item-start lg:items-start mb-4 p-4 rounded-lg '>
+    <div className='flex flex-row item-start lg:items-start mb-4 py-1.5 md:p-4 rounded-lg '>
       <img
          src={comment?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl}
          alt={comment?.snippet?.title}
-         className='w-12 h-12 rounded-full mb-2 lg:mb-0 lg:mr-4'
+         className='md:w-12 md:h-12 w-7 h-7 rounded-full mb-2 lg:mb-0 lg:mr-4'
       />
 
       <div className='flex-1'>
-        <div className='flex gap-2 text-yt-white'>
-          <h3 className='text-sm lg:text-base font-semibold'>
+        <div className='flex items-center gap-2 px-2 text-yt-white'>
+          <h3 className='text-[13px] lg:text-base font-semibold'>
             {comment?.snippet?.topLevelComment?.snippet?.authorDisplayName}
           </h3>
-          <p className='text-xs lg:text-sm '>
+          <p className='text-[10px] lg:text-sm '>
          {formatPublishTime(comment?.snippet?.topLevelComment?.snippet?.publishedAt)}
           </p>
         </div>

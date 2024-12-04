@@ -38,7 +38,7 @@ const RelatedVideos = ({categoryId}) => {
       {relatedVideos?.map((video)=>(
             <Link to={`/video/${video.snippet.categoryId}/${video.id}`}>
             <div className="flex flex-col xl:flex-row  mb-2">
-              <div className="relative h-[200px] lg:h-[140px] w-[400px] min-w-[230px] lg:w-60 md:rounded-xl overflow-hidden">
+              <div className="relative h-[200px] lg:h-[140px] w-[290px] min-w-[230px] lg:w-60 md:rounded-xl overflow-hidden">
                 <img
                   src={video?.snippet?.thumbnails?.medium?.url}
                   alt={video.snippet.title}
@@ -51,9 +51,9 @@ const RelatedVideos = ({categoryId}) => {
               
     
                 <div
-                  className={`flex flex-col ml-0 md:ml-4 md:mt-0 overflow-hidden text-yt-white`}
+                  className={`flex flex-col ml-0 md:ml-4 mt-1.5 mb-2 md:mb-0 md:mt-0 overflow-hidden text-yt-white`}
                 >
-                  <h3 className={`text-md font-semibold text-gray-300 `}>{video?.snippet?.title}</h3>
+                  <h3 className={`md:text-md text-[13px] font-semibold text-gray-300 `}>{video?.snippet?.title}</h3>
                   <div
                     className={`text-xs text-gray-400 `}
                   >

@@ -16,7 +16,7 @@ const SideBar = () => {
   return (
     <>
       {toggle === false ? (
-        <div className="w-60 h-[calc(100vh-50px)] bg-yt-black text-yt-white fixed mt-14 top-0 left-0 px-3 py-4  yt-scrollbar overflow-scroll  transition-all duration-300">
+        <div className="lg:w-60 h-[calc(100vh-50px)] bg-yt-black text-yt-white hidden lg:block fixed mt-14 top-0 left-0 px-3 py-4  yt-scrollbar overflow-scroll  transition-all duration-300">
           <div className="mb-4">
             {SideBarItems.Top.map((item, index) => {
               return (
@@ -83,7 +83,7 @@ const SideBar = () => {
           </div>
         </div>
       ) : (
-        <div className="w-24 h-[calc(100vh-50px)] bg-yt-black text-yt-white fixed mt-14 top-0 left-0 px-3 py-7 scrollbar-hide overflow-scroll transition-all duration-300">
+        <div className="md:w-24 h-[calc(100vh-50px)] w-16 bg-yt-black text-yt-white fixed mt-14 top-0 left-0 px-2 md:px-3 py-3 md:py-7 scrollbar-hide overflow-scroll transition-all duration-300">
           <div>
             {SideBarShort.map((item, index) => {
               return (
@@ -92,11 +92,11 @@ const SideBar = () => {
                     key={index}
                     className={`flex flex-col justify-start items-center ${
                       item.name === active ? "bg-yt-light-black" : "bg-yt-black"
-                    } rounded-[9px] p-3 gap-2 mb-6`}
+                    } rounded-md md:rounded-[9px] p-1 md:p-3 gap-2 mb-2 md:mb-6`}
                     onClick={() => setActive(item.name)}
                   >
-                    <span>{item.icon}</span>
-                    <p className="font-[400] text-[10px]">{item.name}</p>
+                    <span className="">{item.icon}</span>
+                    <p className="font-[400] text-[6px] md:text-[10px]">{item.name}</p>
                   </div>
                </Link>
               );
